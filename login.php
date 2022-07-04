@@ -46,6 +46,7 @@ if(isset($_POST['login'])){
     <br>
     <div class="text-centre">
         <img src="images/zalego.jfif" alt="logo" class="rounded-circle">
+        <span></span>
     </div>
     <br>
     <br>

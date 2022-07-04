@@ -1,7 +1,6 @@
 <?php
-require-once('connection.php');
-  ifisset($_POST['signUp']){
-
+require_once('connection.php');
+  if isset($_POST['login']){
 
     $username=$_POST['username'];
     $email=$_POST['email'];
@@ -14,7 +13,7 @@ require-once('connection.php');
     $checkUsername=mysqli_num_rows($sqlUsername);
 
     $sqlEmail=mysqli_query($conn"SELECT *FROM account WHERE email= '$email'");
-    $checkEmail=mysqli-num-rows($sqlEmail);
+    $checkEmail=mysqli_num_rows($sqlEmail);
 
     if ($checkusername !=0){
       $msg="Username already exist";

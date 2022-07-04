@@ -1,4 +1,12 @@
 <?php
+$server ="localhost";
+$username ="root";
+$password ="";
+$database ="web2";
+
+$conn =mysqli_connect($server,$username,$password,$database);
+
+$sqlquery=mysqli_query($conn,"SELECT * FROM enrollment ");
 
 
 ?>
@@ -70,26 +78,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Kathleen Jebet</td>
-                                    <td>07885677438</td>
-                                    <td>kate@gmail.com</td>
-                                    <td>Female</td>
-                                    <td>Web Design</td>
-                                    <td>23rd August 2022</td>
-                                    <td>
-                                        <a href="" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
+                               <?php while($fetchrecords=mysqli_fetch_array($sqlquery)){?>
+								<tr>
+									<td><?php echo $fetchrecords['no']?></td>
+									<td><?php echo $fetchrecords['fullname']?></td>
+									<td><?php echo $fetchrecords['emailaddress']?></td>
+									<td><?php echo $fetchrecords['gender']?></td>
+									<td><?php echo $fetchrecords['course']?></td>
+									<td><?php echo $fetchrecords['created_at']?></td>
+									<td>
+									<a href="" class="btn btn-primary btn-sm">
+                                             <i class="fa fa-edit"></i>
+                                         </a>
                                         <a href="" class="btn btn-info btn-sm">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="" class="btn btn-danger btn-sm">
-                                            <i class="fa fa-trash"></i>
-                                        </a>
-                                    </td>
-                                </tr>
+                                             <i class="fa fa-eye"></i>
+                                         </a>
+                                         <a href="" class="btn btn-danger btn-sm">
+                                             <i class="fa fa-trash"></i>
+                                         </a>
+									</td>
+								</tr>
+								<?php }?>
                             </tbody>
                         </table>
                     </div>
@@ -107,3 +116,22 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
+ <!-- < <tr>
+                                     <td>1.</td>
+                                    <td>Kathleen Jebet</td>                                  <td>07885677438</td>
+                                   <td>kate@gmail.com</td>
+                                   <td>Female</td>
+                                   <td>Web Design</td>
+                                   <td>23rd August 2022</td>
+                                   <td>
+                                         <a href="" class="btn btn-primary btn-sm">
+                                             <i class="fa fa-edit"></i>
+                                         </a>
+                                        <a href="" class="btn btn-info btn-sm">
+                                             <i class="fa fa-eye"></i>
+                                         </a>
+                                         <a href="" class="btn btn-danger btn-sm">
+                                             <i class="fa fa-trash"></i>
+                                         </a>
+                                     </td>
+                                 </tr> --> --> -->
