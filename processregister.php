@@ -1,6 +1,7 @@
 <?php
 require_once('connection.php');
-  if isset($_POST['login']){
+  if (isset($_POST['login']))
+  {
 
     $username=$_POST['username'];
     $email=$_POST['email'];
@@ -9,10 +10,10 @@ require_once('connection.php');
 
     $passHash=md5($password);
 
-    $sqlUsername= mysqli_query($conn,"SELECT *FROM account WHERE username ='$username'");
+    $sqlUsername= mysqli_query($conn,"SELECT *FROM account WHERE username ='$username' and password='$newPass' ");
     $checkUsername=mysqli_num_rows($sqlUsername);
 
-    $sqlEmail=mysqli_query($conn"SELECT *FROM account WHERE email= '$email'");
+    $sqlEmail=mysqli_query($conn,"SELECT *FROM account WHERE email= '$email' ");
     $checkEmail=mysqli_num_rows($sqlEmail);
 
     if ($checkusername !=0){
@@ -32,7 +33,7 @@ require_once('connection.php');
 
       if($sql)
       {
-        $msg="data submitted successfuly"
+        $msg="data submitted successfuly";
       }
       else{
         $msg='Error';
