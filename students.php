@@ -56,7 +56,6 @@ $sqlquery=mysqli_query($conn,"SELECT * FROM enrollment ");
                                          </a>
 									</td>
 								</tr>
-								<?php }?>
                             </tbody>
                         </table>
                     </div>
