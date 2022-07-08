@@ -28,7 +28,7 @@ require_once('processregister.php')
     <br>
     <div class="text-centre col-lg-6 offset-lg-3">
         <span></span>
-        <img src="imageszalego.jfif" alt="logo" class="rounded-circle">
+        <img src="images/zalegooo.png" alt="logo" class="rounded-circle">
         <span>
             <?php echo $msg ?>
         </span>

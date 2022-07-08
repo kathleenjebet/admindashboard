@@ -10,7 +10,29 @@ $queryuser=mysqli_query($conn,"SELECT *FROM enrollment WHERE no='" .$_GET['id'].
     $course=$fetchuser['course'];
  }
 session_start();
+ //update user records
 
+ if(isset($_POST['update records'])){
+
+  //fetch form data
+  $name=$_POST['fullname'];
+  $phone=$_POST['phonenumber'];
+  $email=$_POST['emailaddress'];
+  $formGender=$_POST['gender'];
+  $formCourse=$_POST['course'];
+
+//update records
+   $updateQuery=mysqli_query($conn ,
+   "UPDATE enrollment SET fullname='$name', phonenumber='$phone',emailaddress='$email',gender='$formGender',course='$formCourse' 
+   WHERE no='" .$_GET['id']."'");
+   
+   if($updateQuery){
+    echo"data updated";
+   }
+else{
+  echo "error occcured";
+}
+ }
 ?>
 <!DOCTYPE html>
 <html>
@@ -55,7 +77,7 @@ session_start();
                     <input type="email" name="emailaddress" value="<?php echo $emailaddress?>" class="form-control" placeholder="Please enter your email">
                   </div>
                   <div class="mb-3 col-lg-6">
-                    <label for="gender" name="gender" class="form-label">Whats your gender?</label>
+                    <label for="gender" name="gender" class="form-label">What's your gender?</label>
                     <select class="form-control" name="gender">
                       <option> <?php echo $gender ?> </option>
                       <option value="Male">Male</option>
@@ -68,7 +90,7 @@ session_start();
                     <select class="form-control bg-$pink-400 rounded" name="course">
                       <option> <?php echo $course?> </option>
                       <option value="Androiod App Development">Andriod App Development</option>
-                      <option value="Web Design and Delopment">Web Design and Delvopmen</option>
+                      <option value="Web Design and Development">Web Design and Development</option>
                       <option value="Data Analysis">Data Analysis</option>
                       <option value="Cyber Security">Cyber Security</option>
                     </select>
@@ -80,7 +102,7 @@ session_start();
                 </div>
                 <div class="row pt-3">
                 <div class="col-lg-6">
-                <button type="submit" name="submitbutton" class="btn btn-outline-primary">Update Application</button>
+                <button type="submit" name="submitbutton" name="update all records" class="btn btn-outline-primary">Update Application</button>
                 </div>
 
                 
