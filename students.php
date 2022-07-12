@@ -22,7 +22,7 @@ $sqlquery=mysqli_query($conn,"SELECT * FROM enrollment ");
 						<span>Students</span>
 					</div>
                     <div class="card-body">
-                        <table class="table table-striped table-hover table-responsive">
+                        <table class="table table-striped table-hover table-responsive" style="font-style:12px">
                             <thead>
                                 <tr>
                                     <th>No.</th>
@@ -40,6 +40,7 @@ $sqlquery=mysqli_query($conn,"SELECT * FROM enrollment ");
                                     <tr>
                                         <td><?php echo $fetchrecords['no']?></td>
                                         <td><?php echo $fetchrecords['fullname']?></td>
+                                        <td><?php echo $fetchrecords['phonenumber']?></td>
                                         <td><?php echo $fetchrecords['emailaddress']?></td>
                                         <td><?php echo $fetchrecords['gender']?></td>
                                         <td><?php echo $fetchrecords['course']?></td>

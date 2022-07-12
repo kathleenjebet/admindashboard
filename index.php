@@ -1,5 +1,13 @@
 <?php
-session_start();
+require_once('logics/dbconnection.php');
+//count all registered students
+$queryAllStudents=mysqli_query($conn,"SELECT * FROM enrollment");
+$countAllStudents=mysqli_num_rows($queryAllStudents);
+
+//count by gender
+$queryAllFemale=mysqli_query($conn,"SELECT * FROM enrollment WHERE gender='female'");
+$countAllFemale=mysqli_num_rows($queryAllFemale);
+
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +38,7 @@ session_start();
 					</div>
 					<div class="card-body"></div>
 					<span><i class="fa fa-group fa-3x"></i></span>
-					<span class="float-right">00</span>
+					<span class="float-right badge badge-dark "><?php echo $countAllStudents ?></span>
 					<div class="card-footer"></div>
 				</div>
 				<div class="col-lg-3">
@@ -39,7 +47,7 @@ session_start();
 					</div>
 					<div class="card-body">
 						<span><i class="fa fa-folder fa-3x"></i></span>
-					<span class="float-right">00</span>
+					<span class="float-right"><?php echo $countAllFemale?></span>
 					</div>
 					<div class="card-footer"></div>
 				</div>

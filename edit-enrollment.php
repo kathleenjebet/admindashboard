@@ -1,8 +1,10 @@
 <?php
+$message="";
 require_once('logics/dbconnection.php');
 $queryuser=mysqli_query($conn,"SELECT *FROM enrollment WHERE no='" .$_GET['id']."' ");
  while ($fetchuser=mysqli_fetch_array($queryuser))
  {
+    $id=$fetchuser['no']; 
     $fullname=$fetchuser['fullname'];
     $phonenumber=$fetchuser['phonenumber'];
     $emailaddress=$fetchuser['emailaddress'];
@@ -12,7 +14,7 @@ $queryuser=mysqli_query($conn,"SELECT *FROM enrollment WHERE no='" .$_GET['id'].
 session_start();
  //update user records
 
- if(isset($_POST['update records'])){
+ if(isset($_POST['submitbutton'])){
 
   //fetch form data
   $name=$_POST['fullname'];
@@ -27,10 +29,10 @@ session_start();
    WHERE no='" .$_GET['id']."'");
    
    if($updateQuery){
-    echo"data updated";
+    $message="data updated";
    }
 else{
-  echo "error occcured";
+  $message="error occcured".mysqli_error($conn);
 }
  }
 ?>
@@ -54,11 +56,13 @@ else{
           <div class="card shadow">
             <div class="card-header text-center bg-dark text-white">
               <h4>Edit Students:
+
                 <?php echo $fullname ?>
               </h4>
+              <span><?php echo$message?></span>
             </div>
             <div class="card-body">
-              <form action="edit-enrollment.php" method="POST">
+              <form action="edit-enrollment.php?id=<?php echo $id ?>" method="POST">
 
                 <div class="row">
                   <div class="mb-3 col-lg-6 ">
@@ -102,7 +106,7 @@ else{
                 </div>
                 <div class="row pt-3">
                 <div class="col-lg-6">
-                <button type="submit" name="submitbutton" name="update all records" class="btn btn-outline-primary">Update Application</button>
+                <button type="submit" name="submitbutton"  class="btn btn-outline-primary">Update Application</button>
                 </div>
 
                 
