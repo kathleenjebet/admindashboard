@@ -14,6 +14,7 @@ if(isset($_POST['login'])){
     $fetch=mysqli_fetch_array($sql);
     if($fetch >0 ){
         $_SESSION['login']=$username;
+        
         header('location:index.php');
     }
     else{

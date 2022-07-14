@@ -1,6 +1,6 @@
 <?php
 require_once('connection.php');
-  if (isset($_POST['login']))
+  if (isset($_POST['signUp']))
   {
 
     $username=$_POST['username'];
@@ -10,16 +10,16 @@ require_once('connection.php');
 
     $passHash=md5($password);
 
-    $sqlUsername= mysqli_query($conn,"SELECT *FROM account WHERE username ='$username' and password='$newPass' ");
+    $sqlUsername= mysqli_query($conn,"SELECT *FROM account WHERE username ='$username' and password='$passHash' ");
     $checkUsername=mysqli_num_rows($sqlUsername);
 
     $sqlEmail=mysqli_query($conn,"SELECT *FROM account WHERE email= '$email' ");
     $checkEmail=mysqli_num_rows($sqlEmail);
 
-    if ($checkusername !=0){
+    if ($checkUsername !=0){
       $msg="Username already exist";
     }
-    else if($checkemail != 0){
+    else if($checkEmail != 0){
       $msg="email already in use.please try a diffrent email address";
     }
     //password confirmation
@@ -29,11 +29,12 @@ require_once('connection.php');
     else{
       //create insert query
       $sql=mysqli_query($conn,"INSERT INTO account (username,email,password) 
-      VALUES ('$username','$email','$passHash')");
+      VALUES('$username','$email','$passHash')");
 
       if($sql)
       {
         $msg="data submitted successfuly";
+        header('location:index.php');
       }
       else{
         $msg='Error';

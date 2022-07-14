@@ -1,5 +1,5 @@
 <?php 
-$msg='data submitted successfully';
+$msg='';
 require_once('processregister.php')
 
 
@@ -58,7 +58,7 @@ require_once('processregister.php')
                     <br>
                     <div class="form-group">
                         <br>
-                        <input type="submit" name="submitbutton" class="btn btn-primary">
+                        <input type="submit" name="signUp" class="btn btn-primary">
                     </div>
                 </div>
             </div>
