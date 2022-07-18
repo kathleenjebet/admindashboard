@@ -52,7 +52,7 @@ if(isset($_POST['login'])){
     <br>
     <br>
     <div class="container shadow p-3 mb-5 bg-white rounded">
-        <form action="register.php" method="POST" class="form-group" autocomplete="of">
+        <form action="login.php" method="POST" class="form-group" autocomplete="of">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 mb-3">
