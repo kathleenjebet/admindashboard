@@ -12,9 +12,9 @@ if (isset ( $_POST['submitbutton']))
       $password=$_POST['password'];
     
 
-    $insertData =mysqli_query($conn, "INSERT INTO account(username,phonenumber,email,password)VALUES('$username','$email','$password',)");
+    $insertData =mysqli_query($conn, "INSERT INTO account(username,email,password)VALUES('$username','$email','$password',)");
     if($insertData){
-        echo "Data connection successfuly";
+        echo "Data connection successfully";
     }
     else
      {
